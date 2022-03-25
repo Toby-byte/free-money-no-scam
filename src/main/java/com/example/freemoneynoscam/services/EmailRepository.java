@@ -10,7 +10,7 @@ public class EmailRepository {
 
         try {
             // forbindelse bliver oprettet til database
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/toby", "Tobias KEA", "Bl@kie2349");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/toby", "root", "password");
 
             Statement statement = connection.createStatement();
 
@@ -20,7 +20,6 @@ public class EmailRepository {
                 String emails = resultSet.getString("emails");
                 dbEmails.add(emails);
             }
-            System.out.println(dbEmails);
         } catch (Exception e) {
             e.printStackTrace();
         }
