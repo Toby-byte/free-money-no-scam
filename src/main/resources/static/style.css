@@ -29,3 +29,11 @@ button{
     background-color:lavender;
     border-bottom-style: dot-dash;
 }
+/*Fik hjælp til at lave denne del af koden*/
+.scrollable_div{
+    overflow-y:scroll;
+    width: 50%;
+    height: 50%;
+    font-size: 80%;
+    font-weight: bolder;
+}

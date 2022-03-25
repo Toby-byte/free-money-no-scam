@@ -7,13 +7,16 @@
 </head>
 <body>
     <!-- TODO User should be able to submit data -->
-    <section class="content">
-            <h1>🤑 Success</h1>
-            <form method="POST" action="/test">
-                <label for="email">🥳 Please enter your e-mail</label>
-                <input id="email" type="text" name="email"/>
-                <input type="submit">
-            </form>
-    </section>
+    <div class="content">
+            <h1>🤑 Success, vi har din email</h1>
+            <div class="scrollable_div">
+            <ul th:each="email : ${DBemails}">
+                <li th:text="${email}">
+
+                </li>
+
+            </ul>
+            </div>
+    </div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package com.example.freemoneynoscam.controllers;
 
-import com.example.freemoneynoscam.EmailRepository;
-import com.example.freemoneynoscam.Models.SingleEmail;
+import com.example.freemoneynoscam.services.EmailRepository;
 import com.example.freemoneynoscam.services.ValidateEmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 @Controller
 public class EmailController {
@@ -22,7 +22,10 @@ public class EmailController {
     }
 
     @GetMapping("/success")
-    public String success() {
+    public String success(Model model) {
+        EmailRepository emailRepository = new EmailRepository();
+        ArrayList<String> DBemails = emailRepository.getEmailFromDB();
+        model.addAttribute("DBemails",DBemails);
         return "success";
     }
 
